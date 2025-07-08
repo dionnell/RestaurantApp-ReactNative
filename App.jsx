@@ -13,7 +13,7 @@ import { ProgresoPedido } from './src/views/ProgresoPedido';
 //context
 import { FirebaseState } from './src/context/firebase/firebaseState';
 import { PedidoState } from './src/context/pedido/pedidoState';
-
+import { DefaultTheme, PaperProvider } from 'react-native-paper'
 
 const Stack = createStackNavigator()
 
@@ -23,6 +23,7 @@ const App = () => {
     <>
       <FirebaseState>
         <PedidoState>
+          <PaperProvider>
           <NavigationContainer>
             <Stack.Navigator
               screenOptions={{
@@ -76,9 +77,10 @@ const App = () => {
                   title: 'Progreso del Pedido'
                 }}
               />
-  
+
             </Stack.Navigator>
           </NavigationContainer>
+          </PaperProvider>
         </PedidoState> 
       </FirebaseState>
     </>

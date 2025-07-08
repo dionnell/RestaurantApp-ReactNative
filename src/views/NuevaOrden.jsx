@@ -1,11 +1,15 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Button, Text } from 'react-native-paper'
+
 
 export const NuevaOrden = () => {
   
   return (
-    <Text>
-      Nueva Orden
-    </Text>
+    <Button 
+      mode="contained" 
+      textColor='#393939'
+      >
+      Hello World!
+    </Button>
   )
 }
