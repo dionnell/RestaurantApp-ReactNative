@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 //Views
 import { NuevaOrden } from './src/views/NuevaOrden';
-import { Menu } from './src/views/Menu';
+import { MenuRestaurant } from './src/views/Menu';
 import { DetallePlatillo } from './src/views/DetallePlatillo';
 import { FormularioPlatillo } from './src/views/FormularioPlatillo';
 import { ResumenPedido } from './src/views/ResumenPedido';
@@ -44,8 +44,8 @@ const App = () => {
                 }}
               />
               <Stack.Screen 
-                name='Menu'
-                component={Menu}
+                name='MenuRestaurant'
+                component={MenuRestaurant}
                 options={{
                   title: 'Nuestro Menu'
                 }}

@@ -5,7 +5,7 @@ import { globalStyles } from '../styles/global'
 import { useNavigation } from '@react-navigation/native'
 
 export const NuevaOrden = () => {
-
+ 
   const navigation = useNavigation()
   
   return (
@@ -14,7 +14,7 @@ export const NuevaOrden = () => {
         <Button 
           mode="contained" 
           style={globalStyles.boton}
-          onPress={() => navigation.navigate('Menu')}
+          onPress={() =>{ navigation.navigate('MenuRestaurant')}}
         >
           <Text style={globalStyles.botonTexto}>
             Crear Nueva Orden
