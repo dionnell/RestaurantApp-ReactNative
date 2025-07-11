@@ -1,4 +1,4 @@
-import { SELECCIONAR_PRODUCTO } from "../firebase/types"
+import { CONFIRMAR_ORDENAR_PLATILLO, SELECCIONAR_PRODUCTO } from "../firebase/types"
 
 export function reducerPedido(state, action)  {
     switch(action.type) {
@@ -6,6 +6,12 @@ export function reducerPedido(state, action)  {
             return {
                 ...state,
                 platillo: action.payload
+            }
+        
+        case CONFIRMAR_ORDENAR_PLATILLO:
+            return {
+                ...state,
+                pedido: [...state.pedido, action.payload]
             }
 
         default:
