@@ -8,7 +8,7 @@ export const globalStyles = StyleSheet.create({
         flexDirection: 'row', 
         flexWrap: 'wrap',
         justifyContent: 'space-around',
-        marginVertical: 5,
+        marginVertical: 2,
         minHeight: 90
     },
     contenido: {
@@ -42,5 +42,13 @@ export const globalStyles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         padding: 10,
-    }
+    },
+    titulo:{
+        fontWeight:'bold', 
+        textTransform:'uppercase',
+        textAlign: 'center',
+        marginTop: 15,
+        marginBottom: 20,
+        fontSize: 30
+    },
 })
