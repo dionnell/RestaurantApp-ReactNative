@@ -48,10 +48,12 @@ export const DetallePlatillo = () => {
           text: 'Confirmar',
           onPress: () => {
             //Almacenar el pedido al pedido principal
+            const id = platillo.nombre + Date.now().toString(36);
             const pedido = {
               ...platillo,
               cantidad,
-              total
+              total,
+              id
             }
             
             guardarPedido(pedido)
