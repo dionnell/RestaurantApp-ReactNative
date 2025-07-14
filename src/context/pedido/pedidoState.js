@@ -1,7 +1,7 @@
 import { useReducer } from "react"
 import { reducerPedido } from "./pedidoReducer"
 import { PedidoContext } from "./pedidoContext"
-import { SELECCIONAR_PRODUCTO, CONFIRMAR_ORDENAR_PLATILLO, MOSTRAR_RESUMEN } from "../firebase/types"
+import { SELECCIONAR_PRODUCTO, CONFIRMAR_ORDENAR_PLATILLO, MOSTRAR_RESUMEN, ELIMINAR_PRODUCTO_CARRITO, PEDIDO_ORDENADO } from "../firebase/types"
 
 export function PedidoState(props) {
 
@@ -10,6 +10,7 @@ export function PedidoState(props) {
         pedido: [],
         platillo: null,
         total: 0,
+        idpedido: ''
     }
 
     //useReducer con dispatch para ejecutar las funciones
@@ -40,15 +41,32 @@ export function PedidoState(props) {
         })
     } 
 
+    //Eliminar un articulo del carrito
+    const eliminarProducto = (id) => {
+        dispatch({
+            type: ELIMINAR_PRODUCTO_CARRITO,
+            payload: id
+        })
+    }
+
+    const pedidoRealizado = (id) => {
+        dispatch({
+            type: PEDIDO_ORDENADO,
+            payload: id
+        })
+    }
     return (
         <PedidoContext.Provider
             value={{
                 pedido: state.pedido,
                 platillo: state.platillo,
                 total: state.total,
+                idpedido: state.idpedido,
                 seleccionarPlatillo,
                 guardarPedido,
-                mostrarResumen
+                mostrarResumen,
+                eliminarProducto,
+                pedidoRealizado
             }}
         >
             {props.children}

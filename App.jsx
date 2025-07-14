@@ -10,6 +10,9 @@ import { FormularioPlatillo } from './src/views/FormularioPlatillo';
 import { ResumenPedido } from './src/views/ResumenPedido';
 import { ProgresoPedido } from './src/views/ProgresoPedido';
 
+//Components
+import {ButtonResumen} from './src/components/ButtonResumen'
+
 //context
 import { FirebaseState } from './src/context/firebase/firebaseState';
 import { PedidoState } from './src/context/pedido/pedidoState';
@@ -47,7 +50,8 @@ const App = () => {
                 name='MenuRestaurant'
                 component={MenuRestaurant}
                 options={{
-                  title: 'Nuestro Menu'
+                  title: 'Nuestro Menu',
+                  headerRight: () => (<ButtonResumen/>)
                 }}
               />
               <Stack.Screen 

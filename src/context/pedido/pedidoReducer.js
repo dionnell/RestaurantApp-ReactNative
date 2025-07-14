@@ -1,4 +1,4 @@
-import { CONFIRMAR_ORDENAR_PLATILLO, MOSTRAR_RESUMEN, SELECCIONAR_PRODUCTO } from "../firebase/types"
+import { CONFIRMAR_ORDENAR_PLATILLO, MOSTRAR_RESUMEN, SELECCIONAR_PRODUCTO, ELIMINAR_PRODUCTO_CARRITO, PEDIDO_ORDENADO } from "../firebase/types"
 
 export function reducerPedido(state, action)  {
     switch(action.type) {
@@ -17,6 +17,16 @@ export function reducerPedido(state, action)  {
             return {
                 ...state,
                 total: action.payload
+            }
+        case ELIMINAR_PRODUCTO_CARRITO: 
+            return {
+                ...state,
+                pedido: state.pedido.filter(articulo => articulo.id !== action.payload)
+            }
+        case PEDIDO_ORDENADO: 
+            return {
+                ...state,
+                idpedido: action.payload
             }
 
         default:

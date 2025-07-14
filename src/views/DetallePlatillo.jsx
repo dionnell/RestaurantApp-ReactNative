@@ -37,7 +37,7 @@ export const DetallePlatillo = () => {
   //Confirmar la Orden
   const confirmarOrden = () => {
     Alert.alert(
-      '¿Desea confirmar tu pedido?',
+      '¿Desea confirmar su pedido?',
       '',
       [
         {
@@ -48,7 +48,10 @@ export const DetallePlatillo = () => {
           text: 'Confirmar',
           onPress: () => {
             //Almacenar el pedido al pedido principal
-            const id = platillo.nombre + Date.now().toString(36);
+            const random = Math.random().toString(36).substring(2, 9);
+            const fecha = Date.now().toString(36);
+            
+            const id = random + fecha;
             const pedido = {
               ...platillo,
               cantidad,

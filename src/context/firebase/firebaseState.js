@@ -3,7 +3,7 @@ import { db } from "../../firebase/firebase"
 import { FirebaseContext } from "./firebaseContext"
 import { reducerFirebase } from "./firebaseReducer"
 import { OBTENER_PRODUCTOS } from './types/index'
-import { collection, onSnapshot, orderBy, query, where } from "firebase/firestore"
+import { collection, onSnapshot, query, where } from "firebase/firestore"
 import _ from 'lodash';
 
 export function FirebaseState(props) {
