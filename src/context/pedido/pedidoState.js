@@ -1,7 +1,7 @@
 import { useReducer } from "react"
 import { reducerPedido } from "./pedidoReducer"
 import { PedidoContext } from "./pedidoContext"
-import { SELECCIONAR_PRODUCTO, CONFIRMAR_ORDENAR_PLATILLO, MOSTRAR_RESUMEN, ELIMINAR_PRODUCTO_CARRITO, PEDIDO_ORDENADO } from "../firebase/types"
+import { SELECCIONAR_PRODUCTO, CONFIRMAR_ORDENAR_PLATILLO, MOSTRAR_RESUMEN, ELIMINAR_PRODUCTO_CARRITO, PEDIDO_ORDENADO, ORDEN_TERMINADA } from "../firebase/types"
 
 export function PedidoState(props) {
 
@@ -55,6 +55,13 @@ export function PedidoState(props) {
             payload: id
         })
     }
+
+    const ordenTeminada = (id) => {
+        dispatch({
+            type: ORDEN_TERMINADA,
+            payload: id
+        })
+    }
     return (
         <PedidoContext.Provider
             value={{
@@ -66,7 +73,8 @@ export function PedidoState(props) {
                 guardarPedido,
                 mostrarResumen,
                 eliminarProducto,
-                pedidoRealizado
+                pedidoRealizado,
+                ordenTeminada
             }}
         >
             {props.children}
