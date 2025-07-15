@@ -48,31 +48,31 @@ export const ProgresoPedido = () => {
         {tiempo === 0 && (
           <>
             <Text variant='headlineSmall' style={{textAlign: 'center', color: '#000', marginBottom:20}}>Hemos Recibido tu Orden de:</Text>
-            <View style={{height: 'auto'}}>
-            <FlatList
-              data={orden}
-              contentContainerStyle={{backgroundColor:'#e3e3e3', Height: 20}}
-              keyExtractor={ orden => (orden.id) }
-              renderItem={ (item) =>
-                <View style={[globalStyles.contenedorRow]}>
-                  <View style={[globalStyles.imagenItem]} >
-                    <Image 
-                      source={{uri: item.item.imagen}}
-                      style={styles.imagenItem} 
+            <View style={{height: 'auto', maxHeight: 450, borderTopWidth: 1, borderBottomWidth: 1, borderColor:'#e3e3e3'}}>
+              <FlatList
+                data={orden}
+                contentContainerStyle={{backgroundColor:'#e3e3e3', Height: 20}}
+                keyExtractor={ orden => (orden.id) }
+                renderItem={ (item) =>
+                  <View style={[globalStyles.contenedorRow]}>
+                    <View style={[globalStyles.imagenItem]} >
+                      <Image 
+                        source={{uri: item.item.imagen}}
+                        style={styles.imagenItem} 
+                      />
+                    </View>
+                    <List.Item
+                      style={globalStyles.platilloItem}
+                      title={item.item.nombre}
+                      titleStyle={{color: '#000', fontWeight: '700', fontSize: 16}}
+                      titleNumberOfLines={2}
+                      description={'cantidad: ' + item.item.cantidad}
+                      descriptionStyle={{color: '#7a7a7a', fontWeight: '600', fontSize: 12}}
+                      descriptionNumberOfLines={3}
                     />
                   </View>
-                  <List.Item
-                    style={globalStyles.platilloItem}
-                    title={item.item.nombre}
-                    titleStyle={{color: '#000', fontWeight: '700', fontSize: 16}}
-                    titleNumberOfLines={2}
-                    description={'cantidad: ' + item.item.cantidad}
-                    descriptionStyle={{color: '#7a7a7a', fontWeight: '600', fontSize: 12}}
-                    descriptionNumberOfLines={3}
-                  />
-                </View>
-              }
-            />
+                }
+              />
             </View>
             <Text variant='headlineSmall' style={{textAlign: 'center', color: '#000', marginTop: 20}}>Estamos calculando el tiempo de entrega</Text>
           </>
